@@ -5,10 +5,10 @@ okno = tk.Tk()
 odist = tk.Button(text="odísť",fg="red", command=quit)
 odist.pack(side=tk.LEFT)
 
-    def faktorial():
-        print(bruh)
+def faktorial():
+    print("bruh")
 
-faktorial_tlacidlo = tk.Button(text="vypočítať faktoriál", fg="green", command=quit)
+faktorial_tlacidlo = tk.Button(text="vypočítať faktoriál", fg="green", command=faktorial)
 faktorial_tlacidlo.pack(side=tk.LEFT)
 
 
