@@ -1,6 +1,7 @@
 import tkinter as tk
 
 okno = tk.Tk()
+okno.title("Prvý program")
 
 odist = tk.Button(okno, text="odísť",fg="red", command=quit)
 odist.pack(side=tk.LEFT)
