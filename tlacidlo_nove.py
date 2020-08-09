@@ -2,13 +2,15 @@ import tkinter as tk
 
 okno = tk.Tk()
 
-odist = tk.Button(text="odísť",fg="red", command=quit)
+odist = tk.Button(okno, text="odísť",fg="red", command=quit)
 odist.pack(side=tk.LEFT)
 
 def faktorial():
-    print("bruh")
+    faktorial_okno = tk.Toplevel(okno)
+    faktorial_okno.title("Faktorial")
+    faktorial_okno.geometry("200x200")
 
-faktorial_tlacidlo = tk.Button(text="vypočítať faktoriál", fg="green", command=faktorial)
+faktorial_tlacidlo = tk.Button(okno, text="vypočítať faktoriál", fg="green", command=faktorial)
 faktorial_tlacidlo.pack(side=tk.LEFT)
 
 
