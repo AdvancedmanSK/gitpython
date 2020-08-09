@@ -1,4 +1,4 @@
-n = input(int("zadaj počet hviezdičiek: "))
+n = int(input("zadaj počet hviezdičiek: "))
 
-for i in(n):
+for i in range (n):
     print("*")
