@@ -25,7 +25,7 @@ def faktorial():
 
 
     def vypocet_faktorialu():
-        n = 23
+        n = int(vstup.get())
         fact = 1
     
         for i in range(1,n+1): 
