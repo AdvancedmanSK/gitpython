@@ -15,6 +15,8 @@ def faktorial():
 
     vytaj = tk.Label(faktorial_okno, text="Vypočítaj si faktoriál",font = "Helvetica 14 bold italic", fg="Blue")
     vytaj.place(relx=0.2, rely=0.0)
+    vstup = tk.Entry(faktorial_okno)
+    vstup.place(relx=0.32, rely=0.15)
 
 
 
