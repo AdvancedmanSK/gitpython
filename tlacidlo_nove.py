@@ -11,9 +11,9 @@ odist.pack(side=tk.LEFT)
 def faktorial():
     faktorial_okno = tk.Toplevel(okno)
     faktorial_okno.title("Faktorial")
-    faktorial_okno.geometry("200x200")
+    faktorial_okno.geometry("310x200")
 
-    vytaj = tk.Label(faktorial_okno, text="Vypočítaj si faktoriál",font = "Helvetica 16 bold italic", fg="Blue")
+    vytaj = tk.Label(faktorial_okno, text="Vypočítaj si faktoriál",font = "Helvetica 14 bold italic", fg="Blue")
     vytaj.place(relx=0.2, rely=0.0)
 
 
