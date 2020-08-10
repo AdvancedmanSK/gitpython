@@ -6,6 +6,8 @@ okno.title("Prvý program")
 odist = tk.Button(okno, text="odísť",fg="red", command=quit)
 odist.pack(side=tk.LEFT)
 
+
+#nove okno pre faktorial
 def faktorial():
     faktorial_okno = tk.Toplevel(okno)
     faktorial_okno.title("Faktorial")
