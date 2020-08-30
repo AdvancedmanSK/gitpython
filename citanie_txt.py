@@ -5,4 +5,4 @@ for line in crimefile.readlines():
         row.append(i)
 
 
-print(row[])
+print(row)
