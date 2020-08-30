@@ -1,4 +1,4 @@
-Jaro, Degeš, 12
+Jaro, Deges, 12
 Yegor, Sciencer, 25
-Nikola, Štetka, 16
+Nikola, Stetka, 16
 Patrik, Biznisman, 18
