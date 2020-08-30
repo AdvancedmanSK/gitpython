@@ -2,6 +2,8 @@ vstup = input(str("zadaj ideológiu: "))
 
 if vstup == "lsns":
     print("fajinovy chlopak")
+elif vstup == "Patrik Šrámek":
+    print("Všetci sú wetmala uprava")
 elif vstup == "libertarianizmus":
     print("Všetky babenky sú vlhké")
 elif vstup == "neoliberalizmus":
