@@ -1,4 +1,1 @@
-Jaro, Deges, 12
-Yegor, Sciencer, 25
-Nikola, Stetka, 16
-Patrik, Biznisman, 18
+Jaro,Deges,12,Yegor,Sciencer,25,Nikola,Stetka,16,Patrik,Biznisman,18,Raitar,Jude,66
