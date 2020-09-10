@@ -8,7 +8,11 @@ def zaklad():
         dni.sort()
     
 def porovnanie():
-    
+    for i in range(0,n+3):
+        if dni[i] == dni[i+1]:
+            print("Toto číslo je rovnaké: "+ str(dni[i]))
+
+
 zaklad()
 porovnanie()
 print(dni)
