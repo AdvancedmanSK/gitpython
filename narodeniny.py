@@ -1,19 +1,17 @@
 import random
 
-dni = [1,1]
+dni = [1,1,356,356]
 n = int(input("zadaj číslo :"))
-
 def zaklad():
     for i in range(n):
-        dni.append(random.randint(1,356))
+        dni.append(random.randint(1,357))
+        dni.sort()
     
 def porovnanie():
-    for i in range(n):
-        if dni[i] in dni:
-            print("2 rovnaké dni sú: "+ str(dni[i]))
-        else:
-            continue
+    
 zaklad()
 porovnanie()
+print(dni)
+
 
 
