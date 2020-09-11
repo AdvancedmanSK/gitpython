@@ -29,7 +29,8 @@ def final():
         zaklad()
         porovnanie()
 final()
-print(spravne)
+fajinovica=[int(i) for i in str(spravne)]
+print(fajinovica[0],fajinovica[1],",",fajinovica[2])
 
 
 
