@@ -35,8 +35,7 @@ def faktorial():
         vysledok.place(x=100, y=100)
 
 
-    spustac = tk.Button(faktorial_okno, text="Vypočítaj",
-                        command=vypocet_faktorialu)
+    spustac = tk.Button(faktorial_okno, text="Vypočítaj",command=vypocet_faktorialu)
     spustac.place(x=130, y=60)
 
 
