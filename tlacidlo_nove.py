@@ -34,6 +34,7 @@ def faktorial():
         vysledok = tk.Label(faktorial_okno, text=(str(fact)), font="Canvas 9")
         vysledok.place(x=100, y=100)
 
+
     spustac = tk.Button(faktorial_okno, text="Vypočítaj",
                         command=vypocet_faktorialu)
     spustac.place(x=130, y=60)
