@@ -1,14 +1,18 @@
 import tkinter as tk
+import time
+
 
 okno = tk.Tk()
 okno.title("Prvý program")
+okno.geometry("300x200")
 
 odist = tk.Button(okno, text="odísť", fg="red", command=quit)
-odist.place(x=0, y=0)
+odist.place(x=130, y=30)
 
 
 # nove okno pre faktorial
 def faktorial():
+ 
     faktorial_okno = tk.Toplevel(okno)
     faktorial_okno.title("Faktorial")
     faktorial_okno.geometry("310x200")
@@ -24,16 +28,19 @@ def faktorial():
     vstup = tk.Entry(faktorial_okno)
     vstup.place(x=100, y=30)
 
+
     def vypocet_faktorialu():
+        vysledok = tk.Label(faktorial_okno, text=("      "*100), font="Canvas 9",)
+        vysledok.place(x=100, y=100)
+        
         n = int(vstup.get())
         fact = 1
 
         for i in range(1, n+1):
             fact = fact * i
 
-        vysledok = tk.Label(faktorial_okno, text=(str(fact)), font="Canvas 9")
+        vysledok = tk.Label(faktorial_okno, text=(str(fact)), font="Canvas 9", fg="#97F23D")
         vysledok.place(x=100, y=100)
-
 
     spustac = tk.Button(faktorial_okno, text="Vypočítaj",command=vypocet_faktorialu)
     spustac.place(x=130, y=60)
@@ -41,7 +48,7 @@ def faktorial():
 
 faktorial_tlacidlo = tk.Button(
     okno, text="vypočítať faktoriál", fg="green", command=faktorial)
-faktorial_tlacidlo.place(x=40, y=0)
+faktorial_tlacidlo.place(x=100,y=1)
 
 
 okno.mainloop()
