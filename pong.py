@@ -72,7 +72,7 @@ class Pong(Frame):
             fill="red", width=1)
         self.paddle1 = self.canvas.create_rectangle(0+self.paddle1X, 0+self.paddle1Y, 10+self.paddle1X, 50+self.paddle1Y, outline="#fb0", fill="#fb0")
         self.paddle2 = self.canvas.create_rectangle(0+self.paddle2X, 0+self.paddle2Y, 10+self.paddle2X, 50+self.paddle2Y, outline="#fb0", fill="#fb0")
-        self.textLabel = self.canvas.create_text(self.winWIDTH/2,10, text=str(self.player1Points)+" | "+str(self.player2Points))
+        self.textLabel = self.canvas.create_text(self.winWIDTH/2,10, text=str(self.player1Points)+" | "+str(self.player2Points),font=("Purisa", 20))
         self.parent.bind("<Key>", self.key)
         self.parent.bind("<Button-1>", self.callback)
         self.parent.bind("<Motion>", self.motion)
@@ -99,13 +99,13 @@ class Pong(Frame):
             self.ballDX = -self.ballDX
             self.player2Points+=1
             self.canvas.delete(self.textLabel)
-            self.textLabel = self.canvas.create_text(self.winWIDTH/2,10, text=str(self.player1Points)+" | "+str(self.player2Points))
+            self.textLabel = self.canvas.create_text(self.winWIDTH/2,10, text=str(self.player1Points)+" | "+str(self.player2Points),font=("Purisa", 20))
             self.canvas.coords(self.ball,self.winWIDTH/2,self.winHEIGHT/2,self.winWIDTH/2+10,self.winHEIGHT/2+10)
         if self.canvas.coords(self.ball)[2] >= self.winWIDTH:
             self.ballDX = -self.ballDX
             self.player1Points+=1
             self.canvas.delete(self.textLabel)
-            self.textLabel = self.canvas.create_text(self.winWIDTH/2,10, text=str(self.player1Points)+" | "+str(self.player2Points))
+            self.textLabel = self.canvas.create_text(self.winWIDTH/2,10, text=str(self.player1Points)+" | "+str(self.player2Points),font=("Purisa", 20))
             self.canvas.coords(self.ball,self.winWIDTH/2,self.winHEIGHT/2,self.winWIDTH/2+10,self.winHEIGHT/2+10)
         self.after(10, self.doMove)
 
