@@ -34,7 +34,6 @@ def faktorial():
         vysledok.place(x=100, y=100)
 
         
-        
         n = int(vstup.get())
         fact = 1
 
