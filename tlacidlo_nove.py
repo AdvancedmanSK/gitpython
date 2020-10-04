@@ -32,6 +32,8 @@ def faktorial():
     def vypocet_faktorialu():
         vysledok = tk.Label(faktorial_okno, text=("      "*100), font="Canvas 9",)
         vysledok.place(x=100, y=100)
+
+        
         
         n = int(vstup.get())
         fact = 1
