@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import Frame, BOTH, Canvas
+import random
 
 
 #By Caleb Robinson
@@ -32,7 +33,7 @@ class Pong(Frame):
 
     def key(self, event):
         global player1,player2
-        print ("pressed"), repr(event.char)
+        repr(event.char)
         if event.char == 'w':
             if self.canvas.coords(self.paddle1)[1]>=0:
                 self.canvas.move(self.paddle1,0,-self.paddleSpeed)
@@ -51,6 +52,8 @@ class Pong(Frame):
     def tabula(self):
         self.textLabel = self.canvas.create_text(self.winWIDTH/2,self.winHEIGHT/2, text=str(self.player1Points)+" | "+str(self.player2Points),font=("Purisa", 200),fill="#B0B0B0")
         self.canvas.tag_lower(self.textLabel)
+
+    
 
     def callback(self, event):
         self.focus_set()
@@ -91,6 +94,9 @@ class Pong(Frame):
         width2 = coords2[2]-coords2[0]
         return not (coords1[0] + width1 < coords2[0] or coords1[1] + height1 < coords2[1] or coords1[0] > coords2[0] + width2 or coords1[1] > coords2[1] + height2)
 
+    def end(self):
+        self.ballDX= random.choice([-1, 1])*self.ballDX
+
     def doMove(self):
         self.canvas.move(self.ball,self.ballDX, self.ballDY)
         if self.canvas.coords(self.ball)[1] <= 0:
@@ -100,13 +106,13 @@ class Pong(Frame):
         if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)):
             self.ballDX = -self.ballDX
         if self.canvas.coords(self.ball)[0] <= 0:
-            self.ballDX = -self.ballDX
+            self.end()
             self.player2Points+=1
             self.canvas.delete(self.textLabel)
             self.tabula()
             self.canvas.coords(self.ball,self.winWIDTH/2,self.winHEIGHT/2,self.winWIDTH/2+10,self.winHEIGHT/2+10)
         if self.canvas.coords(self.ball)[2] >= self.winWIDTH:
-            self.ballDX = -self.ballDX
+            self.end()
             self.player1Points+=1
             self.canvas.delete(self.textLabel)
             self.tabula()
