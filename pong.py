@@ -81,7 +81,7 @@ class Pong(Frame):
         self.parent.bind("<Button-1>", self.callback)
         self.parent.bind("<Motion>", self.motion)
         self.canvas.pack(fill=BOTH, expand=1)
-        self.after(200, self.doMove)
+        self.after(10, self.doMove)
         
 
     def doCollide(self,coords1,coords2):
