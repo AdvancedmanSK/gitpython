@@ -95,7 +95,10 @@ class Pong(Frame):
         return not (coords1[0] + width1 < coords2[0] or coords1[1] + height1 < coords2[1] or coords1[0] > coords2[0] + width2 or coords1[1] > coords2[1] + height2)
 
     def end(self):
+        self.randomWIDTH = random.randint(200,self.winWIDTH-200)
+        self.randomHEIGHT = random.randint(100,self.winHEIGHT-100)
         self.ballDX= random.choice([-1, 1])*self.ballDX
+        self.canvas.coords(self.ball,self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH+10,self.randomHEIGHT+10)
 
     def doMove(self):
         self.canvas.move(self.ball,self.ballDX, self.ballDY)
@@ -110,13 +113,11 @@ class Pong(Frame):
             self.player2Points+=1
             self.canvas.delete(self.textLabel)
             self.tabula()
-            self.canvas.coords(self.ball,self.winWIDTH/2,self.winHEIGHT/2,self.winWIDTH/2+10,self.winHEIGHT/2+10)
         if self.canvas.coords(self.ball)[2] >= self.winWIDTH:
             self.end()
             self.player1Points+=1
             self.canvas.delete(self.textLabel)
             self.tabula()
-            self.canvas.coords(self.ball,self.winWIDTH/2,self.winHEIGHT/2,self.winWIDTH/2+10,self.winHEIGHT/2+10)
         self.after(10, self.doMove)
         
 
