@@ -67,10 +67,11 @@ class Pong(Frame):
         self.canvas.coords(self.paddle2,coords1[0]+self.winWIDTH-15,coords1[1],coords1[2]+self.winWIDTH,coords1[3]) 
         
 
-    def Random_ciara(self):
-        self.randomWIDTH = random.randint(200,self.winWIDTH-200)
-        self.randomHEIGHT = random.randint(50,self.winHEIGHT-50)
-        self.ciarax = self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH,self.randomHEIGHT+random.randint(30,1500),width=3, fill="#143C76")
+    def Random_line(self):
+        for i in range(5):
+            self.randomWIDTH = random.randint(200,self.winWIDTH-200)
+            self.randomHEIGHT = random.randint(50,self.winHEIGHT-50)
+            self.linex = self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH,self.randomHEIGHT+random.randint(30,1500),width=3, fill="#143C76")
         
 
     def initUI(self):
@@ -82,18 +83,17 @@ class Pong(Frame):
         self.canvas.pack(fill=BOTH, expand=1)
         self.winHEIGHT = self.parent.winfo_screenheight()
         self.winWIDTH = self.parent.winfo_screenwidth()
-        self.ball = self.canvas.create_oval(0+self.ballX, 0+self.ballY, 10+self.ballX, 10+self.ballY, outline="black", 
-            fill="red", width=1)
+        self.ball = self.canvas.create_oval(0+self.ballX, 0+self.ballY, 10+self.ballX, 10+self.ballY, outline="black", fill="red", width=1)
         self.paddle1 = self.canvas.create_rectangle(0+self.paddle1X, 0+self.paddle1Y, 10+self.paddle1X, 50+self.paddle1Y, outline="#fb0", fill="#fb0")
         self.paddle2 = self.canvas.create_rectangle(0+self.paddle2X, 0+self.paddle2Y, 10+self.paddle2X, 50+self.paddle2Y, outline="#fb0", fill="#fb0")
         self.tabula()
-        self.Random_ciara()
+        self.Random_line()
         self.parent.bind("<Key>", self.key)
         self.parent.bind("<Button-1>", self.callback)
         self.parent.bind("<Motion>", self.motion)
         self.canvas.pack(fill=BOTH, expand=1)
         self.after(10, self.doMove)
-        
+
 
     def doCollide(self,coords1,coords2):
         height1 = coords1[3]-coords1[1]
@@ -114,7 +114,7 @@ class Pong(Frame):
             self.ballDY = -self.ballDY
         if self.canvas.coords(self.ball)[3] >= self.winHEIGHT:
             self.ballDY = -self.ballDY
-        if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.ciarax)):
+        if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.linex)):
             self.ballDX = -self.ballDX
         if self.canvas.coords(self.ball)[0] <= 0:
             self.end()
