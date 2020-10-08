@@ -66,6 +66,11 @@ class Pong(Frame):
         self.canvas.coords(self.paddle1,coords1[0],coords1[1],coords1[2],coords1[3])
         self.canvas.coords(self.paddle2,coords1[0]+self.winWIDTH-15,coords1[1],coords1[2]+self.winWIDTH,coords1[3]) 
         
+    def krabica(self):
+        self.krabicax = self.canvas.create_line(self.winWIDTH/2+25,self.winHEIGHT/2-25,self.winWIDTH/2+25,self.winHEIGHT/2+25)
+
+
+
     def initUI(self):
 
         self.paddle2X = self.parent.winfo_screenwidth() - 15
@@ -79,6 +84,7 @@ class Pong(Frame):
             fill="red", width=1)
         self.paddle1 = self.canvas.create_rectangle(0+self.paddle1X, 0+self.paddle1Y, 10+self.paddle1X, 50+self.paddle1Y, outline="#fb0", fill="#fb0")
         self.paddle2 = self.canvas.create_rectangle(0+self.paddle2X, 0+self.paddle2Y, 10+self.paddle2X, 50+self.paddle2Y, outline="#fb0", fill="#fb0")
+        self.krabica()
         self.tabula()
         self.parent.bind("<Key>", self.key)
         self.parent.bind("<Button-1>", self.callback)
