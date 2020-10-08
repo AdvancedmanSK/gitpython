@@ -66,10 +66,12 @@ class Pong(Frame):
         self.canvas.coords(self.paddle1,coords1[0],coords1[1],coords1[2],coords1[3])
         self.canvas.coords(self.paddle2,coords1[0]+self.winWIDTH-15,coords1[1],coords1[2]+self.winWIDTH,coords1[3]) 
         
-    def krabica(self):
-        self.krabicax = self.canvas.create_line(self.winWIDTH/2+25,self.winHEIGHT/2-25,self.winWIDTH/2+25,self.winHEIGHT/2+25)
 
-
+    def Random_ciara(self):
+        self.randomWIDTH = random.randint(200,self.winWIDTH-200)
+        self.randomHEIGHT = random.randint(50,self.winHEIGHT-50)
+        self.ciarax = self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH,self.randomHEIGHT+random.randint(30,1500),width=3, fill="#143C76")
+        
 
     def initUI(self):
 
@@ -84,8 +86,8 @@ class Pong(Frame):
             fill="red", width=1)
         self.paddle1 = self.canvas.create_rectangle(0+self.paddle1X, 0+self.paddle1Y, 10+self.paddle1X, 50+self.paddle1Y, outline="#fb0", fill="#fb0")
         self.paddle2 = self.canvas.create_rectangle(0+self.paddle2X, 0+self.paddle2Y, 10+self.paddle2X, 50+self.paddle2Y, outline="#fb0", fill="#fb0")
-        self.krabica()
         self.tabula()
+        self.Random_ciara()
         self.parent.bind("<Key>", self.key)
         self.parent.bind("<Button-1>", self.callback)
         self.parent.bind("<Motion>", self.motion)
@@ -112,7 +114,7 @@ class Pong(Frame):
             self.ballDY = -self.ballDY
         if self.canvas.coords(self.ball)[3] >= self.winHEIGHT:
             self.ballDY = -self.ballDY
-        if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)):
+        if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.ciarax)):
             self.ballDX = -self.ballDX
         if self.canvas.coords(self.ball)[0] <= 0:
             self.end()
