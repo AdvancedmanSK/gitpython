@@ -32,7 +32,6 @@ class Pong(Frame):
         self.initUI()
 
     def key(self, event):
-        global player1,player2
         repr(event.char)
         if event.char == 'w':
             if self.canvas.coords(self.paddle1)[1]>=0:
@@ -57,7 +56,7 @@ class Pong(Frame):
 
     def callback(self, event):
         self.focus_set()
-        print ("clicked at"), event.x, event.y
+        print ("clicked at",event.x,event.y), event.x, event.y
 
     def motion(self, event):
         coords1 = self.canvas.coords(self.paddle1)
@@ -65,6 +64,7 @@ class Pong(Frame):
         coords1[1] = event.y
         coords1[3] = event.y+height1
         self.canvas.coords(self.paddle1,coords1[0],coords1[1],coords1[2],coords1[3])
+        self.canvas.coords(self.paddle2,coords1[0]+self.winWIDTH-15,coords1[1],coords1[2]+self.winWIDTH,coords1[3]) 
         
     def initUI(self):
 
