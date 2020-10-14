@@ -68,9 +68,12 @@ class Pong(Frame):
         
 
     def Random_line(self):
-        self.randomWIDTH = random.randint(200,self.winWIDTH-200)
-        self.randomHEIGHT = random.randint(50,self.winHEIGHT-50)
-        self.linex = self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH,self.randomHEIGHT+random.randint(30,1500),width=3, fill="#143C76")
+        self.lineY={}
+        for i in range(1,6):
+            self.randomWIDTH = random.randint(200,self.winWIDTH-200)
+            self.randomHEIGHT = random.randint(50,self.winHEIGHT-50)
+            self.lineY["ciara{0}".format(i)] = 'self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH,self.randomHEIGHT+random.randint(30,1500),width=3, fill="#143C76")'
+            print(self.lineY)
         
 
     def initUI(self):
@@ -101,15 +104,6 @@ class Pong(Frame):
         width2 = coords2[2]-coords2[0]
         return not (coords1[0] + width1 < coords2[0] or coords1[1] + height1 < coords2[1] or coords1[0] > coords2[0] + width2 or coords1[1] > coords2[1] + height2)
 
-    def doCollide2(self,coords1,coords2):
-        height1 = coords1[3]-coords1[1]
-        width1 = coords1[2]-coords1[0]
-        height2 = coords2[3]-coords2[1]
-        width2 = coords2[2]-coords2[0]
-        height3 = coords3[3]-coords3[1]
-        width3 = coords3[2]-coords3[0]
-        return not (coords1[0] + width1 < coords2[0] or coords1[1] + height1 < coords2[1] or coords1[0] > coords2[0] + width2 or coords1[1] > coords2[1] + height2)
-        return not (coords1[0] + width1 < coords3[0] or coords1[1] + height1 < coords3[1] or coords1[0] > coords3[0] + width3 or coords1[1] > coords3[1] + height3)
 
     def end(self):
         self.randomWIDTH = random.randint(200,self.winWIDTH-200)
@@ -123,7 +117,7 @@ class Pong(Frame):
             self.ballDY = -self.ballDY
         if self.canvas.coords(self.ball)[3] >= self.winHEIGHT:
             self.ballDY = -self.ballDY
-        if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.linex)):
+        if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.Random_line())):
             self.ballDX = -self.ballDX
         if self.canvas.coords(self.ball)[0] <= 0:
             self.end()

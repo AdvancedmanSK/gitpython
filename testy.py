@@ -1,7 +1,5 @@
-class open:
-    def __init__(self):
-        PathOfPDF = askopenfile()
-        self.PDFFILE= PathOfPDF.name
-        print(PDFFILE)
+dictionary = {"oof":2, "bruh":3 }
 
-book = open(self.PDFFILE, 'rb')
+for i in dictionary:
+    marha = dictionary[i]+1
+    print (marha)
