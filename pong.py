@@ -72,8 +72,8 @@ class Pong(Frame):
         for i in range(1,6):
             self.randomWIDTH = random.randint(200,self.winWIDTH-200)
             self.randomHEIGHT = random.randint(50,self.winHEIGHT-50)
-            self.lineY["ciara{0}".format(i)] = 'self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH,self.randomHEIGHT+random.randint(30,1500),width=3, fill="#143C76")'
-            print(self.lineY)
+            self.lineY["ciara{0}".format(i)] = self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH,self.randomHEIGHT+random.randint(35,70),width=3, fill="#143C76")
+
         
 
     def initUI(self):
@@ -117,7 +117,7 @@ class Pong(Frame):
             self.ballDY = -self.ballDY
         if self.canvas.coords(self.ball)[3] >= self.winHEIGHT:
             self.ballDY = -self.ballDY
-        if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.Random_line())):
+        if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara1"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara2"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara3"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara4"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara5"])):
             self.ballDX = -self.ballDX
         if self.canvas.coords(self.ball)[0] <= 0:
             self.end()
