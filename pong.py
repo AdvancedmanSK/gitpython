@@ -69,10 +69,14 @@ class Pong(Frame):
 
     def Random_line(self):
         self.lineY={}
+        self.lineX={}
         for i in range(1,6):
             self.randomWIDTH = random.randint(200,self.winWIDTH-200)
             self.randomHEIGHT = random.randint(50,self.winHEIGHT-50)
             self.lineY["ciara{0}".format(i)] = self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH,self.randomHEIGHT+random.randint(35,70),width=3, fill="#143C76")
+            self.randomWIDTH = random.randint(200,self.winWIDTH-200)
+            self.randomHEIGHT = random.randint(50,self.winHEIGHT-50)
+            self.lineX["ciara{0}".format(i)] = self.canvas.create_line(self.randomWIDTH,self.randomHEIGHT,self.randomWIDTH+random.randint(35,70),self.randomHEIGHT,width=3, fill="#143C76")
 
         
 
@@ -115,7 +119,7 @@ class Pong(Frame):
         self.canvas.move(self.ball,self.ballDX, self.ballDY)
         if self.canvas.coords(self.ball)[1] <= 0:
             self.ballDY = -self.ballDY
-        if self.canvas.coords(self.ball)[3] >= self.winHEIGHT:
+        if self.canvas.coords(self.ball)[3] >= self.winHEIGHT or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineX["ciara1"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineX["ciara2"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineX["ciara3"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineX["ciara4"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineX["ciara5"])):
             self.ballDY = -self.ballDY
         if self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle1)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.paddle2)) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara1"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara2"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara3"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara4"])) or self.doCollide(self.canvas.coords(self.ball),self.canvas.coords(self.lineY["ciara5"])):
             self.ballDX = -self.ballDX
