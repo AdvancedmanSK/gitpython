@@ -3,9 +3,9 @@ import random
 
 
 
-D1=[False,False]
-D2=[False,False]
-D3=[False,False]
+D1=[False,False,False]
+D2=[False,False,False]
+D3=[False,False,False]
     
 def rozlozenie(D1,D2,D3):
     volba = random.randint(1,3)
@@ -38,3 +38,16 @@ def vybranie(D1,D2,D3):
         D2[1]=False
         D3[1]=True
     return D1[1],D2[1],D3[1]
+
+def ukazanie(D1,D2,D3):
+    if D1[0] == False and D1[1] == False:
+        D1[2]=True
+    elif D2[0] == False and D2[1] == False:
+        D2[2]=True
+    else:
+        D3[2]=True
+    return D1[2],D2[2],D3[2]
+
+print(rozlozenie(D1,D2,D3))
+print(vybranie(D1,D2,D3))
+print(ukazanie(D1,D2,D3))
