@@ -6,7 +6,9 @@ import random
 D1=[False,False,False]
 D2=[False,False,False]
 D3=[False,False,False]
-    
+vyhra1 = 0   
+
+
 def rozlozenie(D1,D2,D3):
     volba = random.randint(1,3)
     if volba == 1:
@@ -69,13 +71,17 @@ def zmena(D1,D2,D3):
         D1[1] = True
     return (D1[1],D2[1],D3[1])
 
-def vyhra(D1,D2,D3):
+def vyhra(D1,D2,D3,vyhra1):
     if D1[0] == True and D1[1] == True:
         print("vyhra")
     if D2[0] == True and D2[1] == True:
-        print("vyhra")
+        print("vyhra")    
     if D3[0] == True and D3[1] == True:
         print("vyhra")
+        
+
+
+
 
 
 print(rozlozenie(D1,D2,D3))
