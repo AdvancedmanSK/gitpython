@@ -48,6 +48,31 @@ def ukazanie(D1,D2,D3):
         D3[2]=True
     return D1[2],D2[2],D3[2]
 
+def zmena(D1,D2,D3):
+    if D1[1] == True and D2[2] == True:
+        D1[1] = False
+        D3[1] = True
+    if D1[1] == True and D3[2] == True:
+        D1[1] = False
+        D2[1] = True
+    if D2[1] == True and D1[2] == True:
+        D2[1] = False
+        D3[1] = True
+    if D2[1] == True and D3[2] == True:
+        D2[1] = False
+        D1[1] = True
+    if D3[1] == True and D1[2] == True:
+        D3[1] = False
+        D2[1] = True
+    if D3[1] == True and D2[2] == True:
+        D3[1] = False
+        D1[1] = True
+    return (D1[1],D2[1],D3[1])
+
+
+
+
 print(rozlozenie(D1,D2,D3))
 print(vybranie(D1,D2,D3))
 print(ukazanie(D1,D2,D3))
+print(zmena(D1,D2,D3))
