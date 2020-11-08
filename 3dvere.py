@@ -69,10 +69,17 @@ def zmena(D1,D2,D3):
         D1[1] = True
     return (D1[1],D2[1],D3[1])
 
-
+def vyhra(D1,D2,D3):
+    if D1[0] == True and D1[1] == True:
+        print("vyhra")
+    if D2[0] == True and D2[1] == True:
+        print("vyhra")
+    if D3[0] == True and D3[1] == True:
+        print("vyhra")
 
 
 print(rozlozenie(D1,D2,D3))
 print(vybranie(D1,D2,D3))
 print(ukazanie(D1,D2,D3))
 print(zmena(D1,D2,D3))
+vyhra(D1,D2,D3)
