@@ -71,24 +71,29 @@ def zmena(D1,D2,D3):
         D1[1] = True
     return (D1[1],D2[1],D3[1])
 
-def vyhra(D1,D2,D3,vyhra1):
+def vyhra(D1,D2,D3):
+    global vyhra1
+    vyhra1 = vyhra1 + 0
     if D1[0] == True and D1[1] == True:
         vyhra1 = vyhra1 + 1
-        return vyhra1
+        print(vyhra1)
     if D2[0] == True and D2[1] == True:
         vyhra1 = vyhra1 + 1
-        return vyhra1    
+        print(vyhra1)   
     if D3[0] == True and D3[1] == True:
         vyhra1 = vyhra1 + 1
-        return vyhra1
+        print(vyhra1)
         
 
 
 
 
-for i in range(100):
+for i in range(1):
     rozlozenie(D1,D2,D3)
+    print(D1,D2,D3)
     vybranie(D1,D2,D3)
+    print(D1,D2,D3)
     ukazanie(D1,D2,D3)
-    zmena(D1,D2,D3)
-    print(vyhra(D1,D2,D3,vyhra1))
+    print(D1,D2,D3)
+    vyhra(D1,D2,D3)
+    print(D1,D2,D3)
