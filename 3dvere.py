@@ -54,22 +54,28 @@ def zmena(D1,D2,D3):
     if D1[1] == True and D2[2] == True:
         D1[1] = False
         D3[1] = True
+        return (D1[1],D2[1],D3[1])
     if D1[1] == True and D3[2] == True:
         D1[1] = False
         D2[1] = True
+        return (D1[1],D2[1],D3[1])
     if D2[1] == True and D1[2] == True:
         D2[1] = False
         D3[1] = True
+        return (D1[1],D2[1],D3[1])
     if D2[1] == True and D3[2] == True:
         D2[1] = False
         D1[1] = True
+        return (D1[1],D2[1],D3[1])
     if D3[1] == True and D1[2] == True:
         D3[1] = False
         D2[1] = True
+        return (D1[1],D2[1],D3[1])
     if D3[1] == True and D2[2] == True:
         D3[1] = False
         D1[1] = True
-    return (D1[1],D2[1],D3[1])
+        return (D1[1],D2[1],D3[1])
+
 
 def vyhra(D1,D2,D3):
     global vyhra1
@@ -83,17 +89,22 @@ def vyhra(D1,D2,D3):
     if D3[0] == True and D3[1] == True:
         vyhra1 = vyhra1 + 1
         print(vyhra1)
+
+def cistic():
+    global D1,D2,D3
+    D1=[False,False,False]
+    D2=[False,False,False]
+    D3=[False,False,False]
+
         
 
 
 
 
-for i in range(1):
+for i in range(100000):
     rozlozenie(D1,D2,D3)
-    print(D1,D2,D3)
     vybranie(D1,D2,D3)
-    print(D1,D2,D3)
     ukazanie(D1,D2,D3)
-    print(D1,D2,D3)
+    zmena(D1,D2,D3)
     vyhra(D1,D2,D3)
-    print(D1,D2,D3)
+    cistic()
