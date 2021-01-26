@@ -1,2 +1,5 @@
-import random
-print (random.randint(1,3))
+x = 4
+y = 2
+if x < y:
+    x = x + 1
+print(x, y)
