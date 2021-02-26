@@ -1,6 +1,10 @@
+from string import ascii_letters
+
+
 main_row = []
 sifra_row = []
 main_int = int()
+pismena = list(ascii_letters[:26])
 def precitanie():
     global main_int, main_row
     sifra = open("sifra.txt")
@@ -16,9 +20,20 @@ def rozdelenie_sifry():
     sifra_row = main_row[main_int:]
     main_row = main_row[0:main_int]
 
+def usporiadanie():
+    global main_row
+    main_row.sort(key=len)
+
+def sifrovanie():
+    global main_row, sifra_row, pismena
+    for slovo in sifra_row[0]:
+        print(slovo)
       
 precitanie()
 rozdelenie_sifry()
+usporiadanie()
+sifrovanie()
+print(pismena)
 print(main_row)
 print(sifra_row)
 
