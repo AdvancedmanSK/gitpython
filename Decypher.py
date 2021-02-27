@@ -26,8 +26,20 @@ def usporiadanie():
 
 def sifrovanie():
     global main_row, sifra_row, pismena
-    for slovo in sifra_row[0]:
-        print(slovo)
+    prva_sifra = []
+    cislo_slova = int(-1)
+    prva_sifra = (sifra_row[0].split()) 
+    for i in (prva_sifra):  
+        cislo_slova = cislo_slova + 1
+        for j in i:
+            docasne_ulozenie = j
+            j = "/"
+            if any(docasne_ulozenie in s for s in prva_sifra[cislo_slova]):
+                print("mam slovo"+" "+j)
+                "/" = j   #Toto treba dorobiť
+            else:
+                print("nemam slovo")
+
       
 precitanie()
 rozdelenie_sifry()
