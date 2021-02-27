@@ -28,18 +28,22 @@ def sifrovanie():
     global main_row, sifra_row, pismena
     prva_sifra = []
     cislo_slova = int(-1)
+    pocet_pismen = int(0)
+    dve_pismena = []
     prva_sifra = (sifra_row[0].split()) 
-    for i in (prva_sifra):  
+    for i in (prva_sifra): 
         cislo_slova = cislo_slova + 1
         for j in i:
-            docasne_ulozenie = j
-            j = "/"
-            if any(docasne_ulozenie in s for s in prva_sifra[cislo_slova]):
-                print("mam slovo"+" "+j)
-                "/" = j   #Toto treba dorobiť
+            pocet_pismen=prva_sifra[cislo_slova].count(j)
+            if pocet_pismen >= 2:
+                print("mam slovo")
+                dve_pismena.append(prva_sifra[cislo_slova])
+                dve_pismena = list(set(dve_pismena))
+                print(dve_pismena)
             else:
                 print("nemam slovo")
 
+        
       
 precitanie()
 rozdelenie_sifry()
