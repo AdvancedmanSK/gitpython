@@ -1,5 +1,5 @@
-x = 4
-y = 2
-if x < y:
-    x = x + 1
-print(x, y)
+def test(x):
+    return x != 2
+    print("celer")
+
+test(2)
